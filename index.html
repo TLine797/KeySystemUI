@@ -36,14 +36,13 @@
     content: '';
     position: fixed;
     inset: 0;
-    background: 
+    background:
       radial-gradient(ellipse 80% 50% at 20% -10%, rgba(124,58,237,0.12) 0%, transparent 60%),
       radial-gradient(ellipse 60% 40% at 80% 110%, rgba(6,182,212,0.08) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ── LOGIN ── */
   #loginScreen {
     position: fixed;
     inset: 0;
@@ -240,14 +239,12 @@
     border-radius: 6px;
   }
 
-  /* ── MAIN APP ── */
   #app {
     display: none;
     position: relative;
     z-index: 1;
   }
 
-  /* Header */
   .header {
     border-bottom: 1px solid var(--border);
     background: rgba(10,10,15,0.8);
@@ -300,7 +297,6 @@
     display: inline-block;
   }
 
-  /* Layout */
   .layout {
     max-width: 1400px;
     margin: 0 auto;
@@ -311,7 +307,6 @@
     align-items: start;
   }
 
-  /* Sidebar */
   .sidebar {
     position: sticky;
     top: 84px;
@@ -357,10 +352,6 @@
 
   .nav-item .icon { font-size: 14px; width: 18px; text-align: center; }
 
-  /* Content */
-  .content {}
-
-  /* Stats bar */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -399,7 +390,6 @@
   .stat-value.yellow { color: var(--yellow); }
   .stat-value.cyan { color: var(--accent3); }
 
-  /* Panels */
   .panel {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -437,7 +427,6 @@
 
   .panel-body { padding: 20px; }
 
-  /* Form row */
   .form-row {
     display: flex;
     gap: 10px;
@@ -460,7 +449,6 @@
     letter-spacing: 0.1em;
   }
 
-  /* Table */
   .table-wrap { overflow-x: auto; }
 
   table {
@@ -523,7 +511,6 @@
 
   .actions { display: flex; gap: 6px; }
 
-  /* Logs */
   .log-container {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -539,7 +526,6 @@
   .log-line.valid { color: var(--green); }
   .log-line.invalid { color: var(--red); }
 
-  /* Toast */
   #toast {
     position: fixed;
     bottom: 24px;
@@ -567,7 +553,6 @@
   #toast.error::before { content: '✕'; color: var(--red); font-weight: bold; }
   #toast.info::before { content: '◆'; color: var(--accent2); font-weight: bold; }
 
-  /* Empty state */
   .empty {
     padding: 40px;
     text-align: center;
@@ -577,13 +562,11 @@
 
   .empty .icon { font-size: 32px; margin-bottom: 12px; opacity: 0.3; }
 
-  /* Scrollbar */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-  /* Auth mode toggle */
   .auth-mode-toggle {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -635,6 +618,7 @@
 
   .auth-mode-btn.active .mode-desc { color: var(--accent2); opacity: 0.8; }
 
+  .api-bar {
     background: var(--surface2);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -655,6 +639,32 @@
 
   .separator { height: 1px; background: var(--border); margin: 16px 0; }
 
+  .create-account-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .create-account-box-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .create-account-box-title::before {
+    content: '+';
+    font-size: 14px;
+  }
+
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
     .sidebar { position: static; }
@@ -664,13 +674,11 @@
 </head>
 <body>
 
-<!-- ── LOGIN SCREEN ── -->
 <div id="loginScreen">
   <div class="login-card">
     <div class="login-logo">TLine Systems</div>
     <div class="login-title">Key Management<br><span>Admin Panel</span></div>
 
-    <!-- Auth system selector -->
     <div class="auth-mode-toggle">
       <div class="auth-mode-btn active" id="modeToggleKey" onclick="selectAuthMode('key')">
         <div class="mode-icon">🔑</div>
@@ -706,7 +714,6 @@
   </div>
 </div>
 
-<!-- ── MAIN APP ── -->
 <div id="app">
   <header class="header">
     <div class="header-inner">
@@ -720,7 +727,6 @@
   </header>
 
   <div class="layout">
-    <!-- Sidebar -->
     <nav class="sidebar">
       <div class="nav-section">
         <div class="nav-label">Overview</div>
@@ -754,17 +760,14 @@
       </div>
     </nav>
 
-    <!-- Main content -->
     <main class="content">
 
-      <!-- API bar -->
       <div class="api-bar">
         <span>API:</span>
         <span id="apiUrlFull" style="color:var(--accent3);font-family:monospace;"></span>
         <button class="btn btn-sm btn-secondary" onclick="refreshAll()" style="margin-left:auto;">↻ Refresh</button>
       </div>
 
-      <!-- Stats -->
       <div class="stats-grid" id="statsGrid">
         <div class="stat-card"><div class="stat-label">Total Keys</div><div class="stat-value" id="st-total">—</div></div>
         <div class="stat-card"><div class="stat-label">Bound</div><div class="stat-value green" id="st-bound">—</div></div>
@@ -774,7 +777,6 @@
         <div class="stat-card" id="st-accounts-card"><div class="stat-label">Accounts</div><div class="stat-value" style="color:var(--yellow)" id="st-accounts">—</div></div>
       </div>
 
-      <!-- Dashboard -->
       <div class="panel visible" id="panel-dashboard">
         <div class="panel-header">
           <div class="panel-title">◈ <span>Dashboard</span></div>
@@ -788,7 +790,6 @@
         </div>
       </div>
 
-      <!-- Regular Keys -->
       <div class="panel" id="panel-keys">
         <div class="panel-header">
           <div class="panel-title">⌗ <span>Regular Keys</span></div>
@@ -841,7 +842,6 @@
         </div>
       </div>
 
-      <!-- Special Keys -->
       <div class="panel" id="panel-special">
         <div class="panel-header">
           <div class="panel-title">★ <span>Special Keys</span></div>
@@ -873,7 +873,6 @@
         </div>
       </div>
 
-      <!-- Logs -->
       <div class="panel" id="panel-logs">
         <div class="panel-header">
           <div class="panel-title">▤ <span>Usage Logs</span></div>
@@ -889,7 +888,6 @@
         </div>
       </div>
 
-      <!-- Generator -->
       <div class="panel" id="panel-generator">
         <div class="panel-header">
           <div class="panel-title">⚡ <span>Key Generator</span></div>
@@ -943,14 +941,32 @@
         </div>
       </div>
 
-      <!-- Accounts -->
       <div class="panel" id="panel-accounts">
         <div class="panel-header">
           <div class="panel-title">👤 <span>Accounts</span></div>
           <button class="btn btn-sm" onclick="loadAccounts()">↻ Refresh</button>
         </div>
         <div class="panel-body">
-          <p style="font-size:11px;color:var(--muted);margin-bottom:16px;">Users register via <code style="color:var(--accent3)">POST /register</code> with username, password, and a valid key. Each key can only be bound to one account.</p>
+
+          <div class="create-account-box">
+            <div class="create-account-box-title">Create Account</div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>Username</label>
+                <input type="text" id="createUsername" placeholder="username" />
+              </div>
+              <div class="form-field">
+                <label>Password</label>
+                <input type="password" id="createPassword" placeholder="password" />
+              </div>
+              <div class="form-field">
+                <label>License Key</label>
+                <input type="text" id="createKey" placeholder="KEY-XXXX-XXXX" />
+              </div>
+              <button class="btn btn-sm btn-success" onclick="createAccount()" style="align-self:flex-end;">Create Account</button>
+            </div>
+          </div>
+
           <div class="table-wrap">
             <table>
               <thead>
@@ -969,19 +985,16 @@
         </div>
       </div>
 
-      <!-- Validate -->
       <div class="panel" id="panel-validate">
         <div class="panel-header">
           <div class="panel-title">✦ <span>Validate / Test Auth</span></div>
         </div>
         <div class="panel-body">
-          <!-- Mode toggle -->
           <div id="validateModeToggle" style="display:flex;gap:8px;margin-bottom:20px;">
             <button class="btn btn-sm" id="modeKeyBtn" onclick="setValidateMode('key')" style="background:linear-gradient(135deg,var(--accent),var(--accent2));">Key Only</button>
             <button class="btn btn-sm btn-secondary" id="modeAccountBtn" onclick="setValidateMode('account')">Username + Password + Key</button>
           </div>
 
-          <!-- Key-only mode -->
           <div id="validateModeKey">
             <div class="form-row" style="margin-bottom:16px;">
               <div class="form-field">
@@ -996,7 +1009,6 @@
             </div>
           </div>
 
-          <!-- Account mode -->
           <div id="validateModeAccount" style="display:none;">
             <div class="form-row" style="margin-bottom:16px;">
               <div class="form-field">
@@ -1032,7 +1044,7 @@
 <script>
 let API_BASE = '';
 let ADMIN_KEY = '';
-let AUTH_MODE = 'key'; // 'key' or 'account'
+let AUTH_MODE = 'key';
 const LS_URL  = 'tline_api_url';
 const LS_KEY  = 'tline_admin_key';
 const LS_MODE = 'tline_auth_mode';
@@ -1046,7 +1058,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (savedUrl)  document.getElementById('loginUrl').value  = savedUrl;
   if (savedKey)  document.getElementById('loginKey').value  = savedKey;
 
-  selectAuthMode(savedMode, true); 
+  selectAuthMode(savedMode, true);
 
   if (savedUrl && savedKey) {
     document.getElementById('savedNote').style.display = 'block';
@@ -1071,7 +1083,7 @@ async function autoLogin(url, key) {
     if (d.error) throw new Error();
     API_BASE = url; ADMIN_KEY = key;
     enterApp(d);
-  } catch { /* stay on login */ }
+  } catch {}
 }
 
 async function attemptLogin() {
@@ -1113,10 +1125,8 @@ function enterApp(statsData) {
   const isAccount = AUTH_MODE === 'account';
 
   document.getElementById('nav-accounts').style.display = isAccount ? '' : 'none';
-
   document.getElementById('st-accounts-card').style.display = isAccount ? '' : 'none';
   document.getElementById('statsGrid').style.gridTemplateColumns = isAccount ? 'repeat(6,1fr)' : 'repeat(5,1fr)';
-
   document.getElementById('th-account').style.display = isAccount ? '' : 'none';
 
   document.getElementById('dashWelcomeText').textContent = isAccount
@@ -1357,6 +1367,20 @@ async function clearLogs() {
   await api('/clear_logs', 'POST');
   toast('Logs cleared', 'success');
   loadLogs();
+}
+
+async function createAccount() {
+  const username = document.getElementById('createUsername').value.trim();
+  const password = document.getElementById('createPassword').value.trim();
+  const key      = document.getElementById('createKey').value.trim();
+  if (!username || !password || !key) return toast('All fields are required', 'error');
+  const data = await api('/create_account', 'POST', { username, password, key });
+  if (data.error) return toast(data.error, 'error');
+  toast(`Account @${username} created`, 'success');
+  document.getElementById('createUsername').value = '';
+  document.getElementById('createPassword').value = '';
+  document.getElementById('createKey').value = '';
+  loadAccounts(); refreshAll();
 }
 
 async function loadAccounts() {
