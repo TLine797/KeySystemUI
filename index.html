@@ -1388,12 +1388,14 @@ function clearSaved() {
 // ─── API helper ───────────────────────────────────────────────────────────────
 
 async function api(path, method = 'GET', body = null) {
-  const opts = { method, headers: { 'X-Admin-Key': ADMIN_KEY } };
+  const opts = { method, headers: {} };
   if (body) {
     opts.body = new URLSearchParams(body);
     opts.headers['Content-Type'] = 'application/x-www-form-urlencoded';
   }
-  const r = await fetch(`${API_BASE}${path}`, opts);
+  // Pass admin key as query param to avoid CORS preflight on custom headers
+  const sep = path.includes('?') ? '&' : '?';
+  const r = await fetch(`${API_BASE}${path}${sep}admin_key=${encodeURIComponent(ADMIN_KEY)}`, opts);
   return r.json();
 }
 
@@ -1639,28 +1641,43 @@ async function uploadLoader() {
   formData.append('file', file);
 
   try {
-    // Use XMLHttpRequest so we can track upload progress
     await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', `${API_BASE}/upload_loader`);
-      xhr.setRequestHeader('X-Admin-Key', ADMIN_KEY);
+      // ── FIX: pass admin key as query param instead of custom header ──
+      // Custom headers (X-Admin-Key) trigger a CORS OPTIONS preflight which
+      // PythonAnywhere's nginx does not handle correctly for multipart uploads.
+      // Query-param auth avoids the preflight entirely.
+      xhr.open('POST', `${API_BASE}/upload_loader?admin_key=${encodeURIComponent(ADMIN_KEY)}`);
 
       xhr.upload.addEventListener('progress', e => {
         if (e.lengthComputable) {
           const pct = Math.round((e.loaded / e.total) * 100);
-          progressBar.style.width   = `${pct}%`;
-          progressLbl.textContent   = `Uploading... ${pct}%`;
+          progressBar.style.width = `${pct}%`;
+          progressLbl.textContent = `Uploading... ${pct}%`;
         }
       });
 
       xhr.onload = () => {
+        if (xhr.status === 0) {
+          reject(new Error('Network error — server unreachable or CORS blocked'));
+          return;
+        }
         try {
           const data = JSON.parse(xhr.responseText);
           if (data.error) reject(new Error(data.error));
           else resolve(data);
-        } catch { reject(new Error('Invalid response')); }
+        } catch {
+          reject(new Error(`Unexpected response (HTTP ${xhr.status})`));
+        }
       };
-      xhr.onerror = () => reject(new Error('Network error'));
+
+      xhr.onerror = () => {
+        reject(new Error('Network error — check that your API URL is correct and the server is running'));
+      };
+
+      xhr.ontimeout = () => reject(new Error('Upload timed out'));
+      xhr.timeout   = 0; // no timeout for large files
+
       xhr.send(formData);
     });
 
@@ -1985,8 +2002,6 @@ function setValidateMode(mode) {
   document.getElementById('validateModeAccount').style.display = isKey ? 'none' : '';
   document.getElementById('modeKeyBtn').className     = isKey ? 'btn btn-sm' : 'btn btn-sm btn-secondary';
   document.getElementById('modeAccountBtn').className = isKey ? 'btn btn-sm btn-secondary' : 'btn btn-sm';
-  document.getElementById('modeKeyBtn').style.background     = isKey ? '' : '';
-  document.getElementById('modeAccountBtn').style.background = '';
   document.getElementById('validateResult').style.display    = 'none';
 }
 
