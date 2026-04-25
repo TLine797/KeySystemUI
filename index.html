@@ -185,13 +185,14 @@
   .btn:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(124,58,237,0.3); }
   .btn:active { transform: scale(0.98); }
   .btn-sm { padding: 8px 14px; font-size: 11px; border-radius: 6px; }
-  .btn-danger  { background: linear-gradient(135deg, #dc2626, #ef4444); }
-  .btn-success { background: linear-gradient(135deg, #059669, #10b981); }
-  .btn-warning { background: linear-gradient(135deg, #d97706, #f59e0b); }
+  .btn-danger   { background: linear-gradient(135deg, #dc2626, #ef4444); }
+  .btn-success  { background: linear-gradient(135deg, #059669, #10b981); }
+  .btn-warning  { background: linear-gradient(135deg, #d97706, #f59e0b); }
   .btn-secondary { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
   .btn-secondary:hover { color: var(--text); border-color: var(--accent); }
   .btn-orange { background: linear-gradient(135deg, #ea580c, #f97316); }
   .btn-cyan   { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+  .btn-pink   { background: linear-gradient(135deg, #be185d, #ec4899); }
 
   .login-error {
     color: var(--red);
@@ -287,7 +288,7 @@
   .nav-item:hover { background: var(--surface2); color: var(--text); }
   .nav-item.active { background: var(--glow); color: var(--accent2); border-color: rgba(124,58,237,0.2); }
   .nav-item.danger-nav.active { background: rgba(239,68,68,0.08); color: var(--red); border-color: rgba(239,68,68,0.2); }
-  .nav-item.danger-nav:hover { color: var(--red); }
+  .nav-item.danger-nav:hover  { color: var(--red); }
   .nav-item .icon { font-size: 14px; width: 18px; text-align: center; }
 
   .nav-badge {
@@ -339,6 +340,7 @@
   .stat-value.yellow { color: var(--yellow); }
   .stat-value.cyan   { color: var(--accent3); }
   .stat-value.orange { color: var(--orange); }
+  .stat-value.pink   { color: #ec4899; }
 
   /* ── Panels ── */
   .panel {
@@ -436,14 +438,15 @@
     font-weight: 500;
     letter-spacing: 0.05em;
   }
-  .badge-green  { background: rgba(16,185,129,0.15); color: var(--green);   border: 1px solid rgba(16,185,129,0.2); }
-  .badge-red    { background: rgba(239,68,68,0.15);  color: var(--red);     border: 1px solid rgba(239,68,68,0.2); }
-  .badge-yellow { background: rgba(245,158,11,0.15); color: var(--yellow);  border: 1px solid rgba(245,158,11,0.2); }
-  .badge-purple { background: rgba(168,85,247,0.15); color: var(--accent2); border: 1px solid rgba(168,85,247,0.2); }
-  .badge-cyan   { background: rgba(6,182,212,0.15);  color: var(--accent3); border: 1px solid rgba(6,182,212,0.2); }
-  .badge-orange { background: rgba(249,115,22,0.15); color: var(--orange);  border: 1px solid rgba(249,115,22,0.2); }
+  .badge-green  { background: rgba(16,185,129,0.15);  color: var(--green);   border: 1px solid rgba(16,185,129,0.2); }
+  .badge-red    { background: rgba(239,68,68,0.15);   color: var(--red);     border: 1px solid rgba(239,68,68,0.2); }
+  .badge-yellow { background: rgba(245,158,11,0.15);  color: var(--yellow);  border: 1px solid rgba(245,158,11,0.2); }
+  .badge-purple { background: rgba(168,85,247,0.15);  color: var(--accent2); border: 1px solid rgba(168,85,247,0.2); }
+  .badge-cyan   { background: rgba(6,182,212,0.15);   color: var(--accent3); border: 1px solid rgba(6,182,212,0.2); }
+  .badge-orange { background: rgba(249,115,22,0.15);  color: var(--orange);  border: 1px solid rgba(249,115,22,0.2); }
+  .badge-pink   { background: rgba(236,72,153,0.15);  color: #ec4899;        border: 1px solid rgba(236,72,153,0.2); }
 
-  .actions { display: flex; gap: 6px; }
+  .actions { display: flex; gap: 6px; flex-wrap: wrap; }
 
   /* ── Logs ── */
   .log-container {
@@ -532,7 +535,7 @@
 
   .separator { height: 1px; background: var(--border); margin: 16px 0; }
 
-  /* ── Create account box ── */
+  /* ── Shared box styles ── */
   .create-account-box {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -598,7 +601,7 @@
     gap: 8px;
   }
 
-  /* ── Loader panel ── */
+  /* ── Loader ── */
   .loader-status-box {
     padding: 16px 18px;
     background: var(--surface2);
@@ -681,11 +684,7 @@
   .drop-zone .dz-sub   { font-size: 10px; color: var(--muted); opacity: 0.6; }
   .drop-zone .dz-file  { font-size: 12px; color: var(--accent2); font-weight: 600; }
 
-  /* Progress bar */
-  .upload-progress-wrap {
-    display: none;
-    margin-top: 12px;
-  }
+  .upload-progress-wrap { display: none; margin-top: 12px; }
   .upload-progress-bar-bg {
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -703,7 +702,6 @@
   }
   .upload-progress-label { font-size: 11px; color: var(--accent2); }
 
-  /* Generated download link */
   .dl-link-box {
     display: none;
     background: var(--bg);
@@ -719,6 +717,46 @@
     margin-top: 12px;
   }
   .dl-link-box:hover { background: rgba(6,182,212,0.05); }
+
+  /* ── Products ── */
+  .products-add-box {
+    background: rgba(236,72,153,0.04);
+    border: 1px solid rgba(236,72,153,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .products-add-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ec4899;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .products-assign-box {
+    background: rgba(124,58,237,0.04);
+    border: 1px solid rgba(124,58,237,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .products-assign-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent2);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
@@ -750,7 +788,7 @@
 
     <div class="input-group">
       <label>API Base URL</label>
-      <input type="text" id="loginUrl" placeholder="https://your-api.pythonanywhere.com" value="" />
+      <input type="text" id="loginUrl" placeholder="https://your-api.pythonanywhere.com" />
     </div>
     <div class="input-group">
       <label>Admin Secret Key</label>
@@ -800,6 +838,13 @@
         <div class="nav-item" onclick="showTab('generator')" id="nav-generator"> <span class="icon">⚡</span> Key Generator</div>
       </div>
       <div class="nav-section">
+        <div class="nav-label">Products</div>
+        <div class="nav-item" onclick="showTab('products')" id="nav-products">
+          <span class="icon">📦</span> Products
+          <span class="nav-badge" id="navProductsCount" style="display:none;background:rgba(236,72,153,0.15);color:#ec4899;border-color:rgba(236,72,153,0.25);">0</span>
+        </div>
+      </div>
+      <div class="nav-section">
         <div class="nav-label">Distribution</div>
         <div class="nav-item" onclick="showTab('loader')" id="nav-loader">
           <span class="icon">⬇</span> Loader
@@ -837,6 +882,7 @@
         <div class="stat-card"><div class="stat-label">Special</div><div class="stat-value" style="color:var(--accent2)" id="st-special">—</div></div>
         <div class="stat-card"><div class="stat-label">Expired</div><div class="stat-value red" id="st-expired">—</div></div>
         <div class="stat-card" id="st-accounts-card"><div class="stat-label">Accounts</div><div class="stat-value yellow" id="st-accounts">—</div></div>
+        <div class="stat-card"><div class="stat-label">Products</div><div class="stat-value pink" id="st-products">—</div></div>
         <div class="stat-card"><div class="stat-label">Blacklisted IPs</div><div class="stat-value orange" id="st-blacklisted">—</div></div>
         <div class="stat-card"><div class="stat-label">Loader</div><div class="stat-value" id="st-loader" style="font-size:14px;">—</div></div>
       </div>
@@ -848,7 +894,7 @@
         </div>
         <div class="panel-body">
           <p style="color:var(--muted);font-size:12px;line-height:1.8;">
-            Welcome to the TLine Key System admin panel. Use the sidebar to manage keys, view logs, validate licenses, upload the loader, and manage the IP blacklist.
+            Welcome to the TLine Key System admin panel. Use the sidebar to manage keys, accounts, products, view logs, validate licenses, upload the loader, and manage the IP blacklist.
           </p>
           <div class="separator"></div>
           <p style="color:var(--muted);font-size:11px;">Connected as admin · All actions are logged.</p>
@@ -894,6 +940,7 @@
                 <tr>
                   <th>Key</th>
                   <th id="th-account">Account</th>
+                  <th>Product</th>
                   <th>HWID</th>
                   <th>Status</th>
                   <th>Expiration</th>
@@ -901,7 +948,7 @@
                 </tr>
               </thead>
               <tbody id="keysTable">
-                <tr><td colspan="6"><div class="empty"><div class="icon">⌗</div>No keys loaded</div></td></tr>
+                <tr><td colspan="7"><div class="empty"><div class="icon">⌗</div>No keys loaded</div></td></tr>
               </tbody>
             </table>
           </div>
@@ -936,6 +983,66 @@
         </div>
       </div>
 
+      <!-- ── PRODUCTS ── -->
+      <div class="panel" id="panel-products">
+        <div class="panel-header">
+          <div class="panel-title">📦 <span>Products</span></div>
+          <button class="btn btn-sm" onclick="loadProducts()">↻ Refresh</button>
+        </div>
+        <div class="panel-body">
+
+          <div class="products-add-box">
+            <div class="products-add-title">➕ Add Product</div>
+            <div class="form-row">
+              <div class="form-field" style="max-width:180px;">
+                <label>Product ID</label>
+                <input type="text" id="newProductId" placeholder="e.g. AIMBOT" />
+              </div>
+              <div class="form-field">
+                <label>Product Name</label>
+                <input type="text" id="newProductName" placeholder="e.g. AimBot Pro v2" />
+              </div>
+              <button class="btn btn-sm btn-pink" onclick="addProduct()" style="align-self:flex-end;">+ Add Product</button>
+            </div>
+          </div>
+
+          <div class="table-wrap" style="margin-bottom:8px;">
+            <table>
+              <thead>
+                <tr><th>Product ID</th><th>Product Name</th><th>Keys Assigned</th><th>Actions</th></tr>
+              </thead>
+              <tbody id="productsTable">
+                <tr><td colspan="4"><div class="empty"><div class="icon">📦</div>No products found</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="products-assign-box">
+            <div class="products-assign-title">🔗 Assign Product to Key</div>
+            <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
+              Assign a product to a key so that when a user validates or logs in, the server tells them which product they have access to.
+            </p>
+            <div class="form-row">
+              <div class="form-field">
+                <label>License Key</label>
+                <input type="text" id="assignKey" placeholder="KEY-XXXX-XXXX" />
+              </div>
+              <div class="form-field" style="max-width:240px;">
+                <label>Product</label>
+                <div class="select-wrapper">
+                  <select id="assignProductId">
+                    <option value="">— Select a product —</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-sm" onclick="assignProduct()" style="align-self:flex-end;">Assign →</button>
+              <button class="btn btn-sm btn-secondary" onclick="unassignProduct()" style="align-self:flex-end;">Unassign</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <!-- ── LOADER ── -->
       <div class="panel" id="panel-loader">
         <div class="panel-header">
@@ -944,24 +1051,22 @@
         </div>
         <div class="panel-body">
 
-          <!-- Status bar -->
           <div class="loader-status-box" id="loaderStatusBox">
             <span style="color:var(--muted);">Checking status...</span>
           </div>
 
-          <!-- Upload -->
           <div class="loader-upload-box">
             <div class="loader-upload-title">⬆ Upload Loader EXE</div>
             <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
-              Uploading a new file will <strong style="color:var(--yellow);">permanently replace</strong> any existing loader on the server.
-              Only one EXE is ever stored at a time.
+              Uploading a new file will <strong style="color:var(--yellow);">permanently replace</strong> any existing loader.
+              Only one EXE is stored at a time.
             </p>
 
             <div class="drop-zone" id="dropZone">
               <input type="file" id="loaderFileInput" accept=".exe" onchange="onFileSelected(this)" />
               <div class="dz-icon">📦</div>
               <div class="dz-label" id="dzLabel">Drop your .exe here, or click to browse</div>
-              <div class="dz-sub">Only .exe files · Max size depends on your server config</div>
+              <div class="dz-sub">Only .exe files</div>
             </div>
 
             <div class="upload-progress-wrap" id="uploadProgressWrap">
@@ -977,13 +1082,11 @@
             </div>
           </div>
 
-          <!-- Test download link generator -->
           <div class="loader-download-box">
             <div class="loader-download-title">⬇ Generate Download Link</div>
             <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
               The <code style="color:var(--accent3);background:var(--surface2);padding:2px 6px;border-radius:4px;">/download</code>
-              endpoint only requires a valid license key + HWID — no admin key needed.
-              Use this to generate and test a link for a specific user.
+              endpoint requires a valid license key + HWID. Generate a test link here.
             </p>
             <div class="form-row" style="margin-bottom:0;">
               <div class="form-field">
@@ -997,7 +1100,7 @@
               <button class="btn btn-sm btn-cyan" onclick="genDownloadLink()" style="align-self:flex-end;">Generate Link</button>
             </div>
             <div class="dl-link-box" id="dlLinkResult" onclick="copyDlLink()" title="Click to copy"></div>
-            <p id="dlLinkHint" style="display:none;font-size:10px;color:var(--muted);margin-top:6px;">Click the link above to copy it to clipboard.</p>
+            <p id="dlLinkHint" style="display:none;font-size:10px;color:var(--muted);margin-top:6px;">Click the link above to copy it.</p>
           </div>
 
         </div>
@@ -1031,10 +1134,10 @@
           <div class="table-wrap">
             <table>
               <thead>
-                <tr><th>Username</th><th>Bound Key</th><th>Expiration</th><th>Actions</th></tr>
+                <tr><th>Username</th><th>Bound Key</th><th>Product</th><th>Expiration</th><th>Actions</th></tr>
               </thead>
               <tbody id="accountsTable">
-                <tr><td colspan="4"><div class="empty"><div class="icon">👤</div>No accounts loaded</div></td></tr>
+                <tr><td colspan="5"><div class="empty"><div class="icon">👤</div>No accounts loaded</div></td></tr>
               </tbody>
             </table>
           </div>
@@ -1156,7 +1259,7 @@
             </div>
 
             <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
-              When enabled, IPs are automatically blacklisted after hitting the failure threshold. Successful logins reset the counter.
+              When enabled, IPs are automatically blacklisted after hitting the failure threshold.
             </p>
             <div class="table-wrap">
               <table>
@@ -1196,8 +1299,8 @@
         </div>
         <div class="panel-body">
           <div id="validateModeToggle" style="display:flex;gap:8px;margin-bottom:20px;">
-            <button class="btn btn-sm" id="modeKeyBtn"     onclick="setValidateMode('key')">Key Only</button>
-            <button class="btn btn-sm btn-secondary" id="modeAccountBtn" onclick="setValidateMode('account')">Username + Password + Key</button>
+            <button class="btn btn-sm" id="modeKeyBtn" onclick="setValidateMode('key')">Key Only</button>
+            <button class="btn btn-sm btn-secondary" id="modeAccountBtn" onclick="setValidateMode('account')">Username + Password</button>
           </div>
 
           <div id="validateModeKey">
@@ -1223,10 +1326,6 @@
               <div class="form-field">
                 <label>Password</label>
                 <input type="password" id="validatePassword" placeholder="Password..." />
-              </div>
-              <div class="form-field">
-                <label>Key</label>
-                <input type="text" id="validateAccountKey" placeholder="License key..." />
               </div>
               <div class="form-field">
                 <label>HWID (optional)</label>
@@ -1257,7 +1356,7 @@ const LS_KEY  = 'tline_admin_key';
 const LS_MODE = 'tline_auth_mode';
 const SAFE_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// ─── Init ────────────────────────────────────────────────────────────────────
+// ─── Init ─────────────────────────────────────────────────────────────────────
 
 window.addEventListener('DOMContentLoaded', () => {
   const savedUrl  = localStorage.getItem(LS_URL);
@@ -1276,7 +1375,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('loginKey').addEventListener('keydown', e => { if (e.key === 'Enter') attemptLogin(); });
 
-  // Drag-and-drop on drop zone
   const dz = document.getElementById('dropZone');
   dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('drag-over'); });
   dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
@@ -1293,7 +1391,7 @@ window.addEventListener('DOMContentLoaded', () => {
   updateGenPreview();
 });
 
-// ─── Auth mode ───────────────────────────────────────────────────────────────
+// ─── Auth mode ────────────────────────────────────────────────────────────────
 
 function selectAuthMode(mode, silent = false) {
   AUTH_MODE = mode;
@@ -1302,7 +1400,7 @@ function selectAuthMode(mode, silent = false) {
   if (!silent) localStorage.setItem(LS_MODE, mode);
 }
 
-// ─── Login ───────────────────────────────────────────────────────────────────
+// ─── Login ────────────────────────────────────────────────────────────────────
 
 async function autoLogin(url, key) {
   try {
@@ -1359,6 +1457,7 @@ function enterApp(statsData) {
   loadBlacklist();
   loadFailTracker();
   checkLoaderStatus();
+  loadProducts();
 
   const isAccount = AUTH_MODE === 'account';
   document.getElementById('nav-accounts').style.display     = isAccount ? '' : 'none';
@@ -1393,9 +1492,8 @@ async function api(path, method = 'GET', body = null) {
     opts.body = new URLSearchParams(body);
     opts.headers['Content-Type'] = 'application/x-www-form-urlencoded';
   }
-  // Pass admin key as query param to avoid CORS preflight on custom headers
   const sep = path.includes('?') ? '&' : '?';
-  const r = await fetch(`${API_BASE}${path}${sep}admin_key=${encodeURIComponent(ADMIN_KEY)}`, opts);
+  const r   = await fetch(`${API_BASE}${path}${sep}admin_key=${encodeURIComponent(ADMIN_KEY)}`, opts);
   return r.json();
 }
 
@@ -1420,6 +1518,7 @@ function showTab(tab) {
   if (tab === 'special')   loadSpecialKeys();
   if (tab === 'logs')      loadLogs();
   if (tab === 'accounts')  loadAccounts();
+  if (tab === 'products')  loadProducts();
   if (tab === 'blacklist') { loadBlacklist(); loadFailTracker(); }
   if (tab === 'loader')    checkLoaderStatus();
 }
@@ -1433,6 +1532,7 @@ function applyStats(data) {
   document.getElementById('st-special').textContent    = data.special_keys    ?? '—';
   document.getElementById('st-expired').textContent    = data.expired_keys    ?? '—';
   document.getElementById('st-accounts').textContent   = data.total_accounts  ?? '—';
+  document.getElementById('st-products').textContent   = data.total_products  ?? '—';
   document.getElementById('st-blacklisted').textContent = data.blacklisted_ips ?? '—';
 
   const loaderEl = document.getElementById('st-loader');
@@ -1460,7 +1560,7 @@ async function loadKeys() {
   const data  = await api('/list_keys');
   const tbody = document.getElementById('keysTable');
   if (!data.keys || data.keys.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6"><div class="empty"><div class="icon">⌗</div>No keys found</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty"><div class="icon">⌗</div>No keys found</div></td></tr>`;
     return;
   }
   tbody.innerHTML = data.keys.map(k => {
@@ -1476,9 +1576,13 @@ async function loadKeys() {
     const acctCell = AUTH_MODE === 'account'
       ? `<td>${k.username ? `<span style="color:var(--accent2);font-size:11px;">@${k.username}</span>` : `<span style="color:var(--muted);font-size:11px;">—</span>`}</td>`
       : '';
+    const productCell = k.product_name
+      ? `<span class="badge badge-pink">${escapeHtml(k.product_name)}</span>`
+      : `<span style="color:var(--muted);font-size:11px;">—</span>`;
     return `<tr>
       <td><span class="key-val" onclick="navigator.clipboard.writeText('${k.key}');toast('Copied!','info')">${k.key}</span></td>
       ${acctCell}
+      <td>${productCell}</td>
       <td>${hwid}</td>
       <td>${status}</td>
       <td>${exp}</td>
@@ -1573,16 +1677,90 @@ async function removeSpecialKey(key) {
   loadSpecialKeys(); refreshAll();
 }
 
+// ─── Products ────────────────────────────────────────────────────────────────
+
+async function loadProducts() {
+  const data  = await api('/list_products');
+  const tbody = document.getElementById('productsTable');
+  const sel   = document.getElementById('assignProductId');
+  const badge = document.getElementById('navProductsCount');
+
+  if (!data.products || data.products.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="4"><div class="empty"><div class="icon">📦</div>No products found</div></td></tr>`;
+    sel.innerHTML   = '<option value="">— No products —</option>';
+    badge.style.display = 'none';
+    return;
+  }
+
+  badge.textContent   = data.products.length;
+  badge.style.display = '';
+
+  tbody.innerHTML = data.products.map(p => `<tr>
+    <td><span class="badge badge-pink">${escapeHtml(p.product_id)}</span></td>
+    <td style="color:var(--text);font-size:12px;font-weight:600;">${escapeHtml(p.product_name)}</td>
+    <td style="color:var(--muted);font-size:12px;">${p.key_count} key${p.key_count !== 1 ? 's' : ''}</td>
+    <td><div class="actions">
+      <button class="btn btn-sm btn-danger" onclick="removeProduct('${escapeHtml(p.product_id)}')">Remove</button>
+    </div></td>
+  </tr>`).join('');
+
+  sel.innerHTML = '<option value="">— Select a product —</option>' + data.products.map(p =>
+    `<option value="${escapeHtml(p.product_id)}">${escapeHtml(p.product_name)}</option>`
+  ).join('');
+}
+
+async function addProduct() {
+  const pid  = document.getElementById('newProductId').value.trim().toUpperCase();
+  const name = document.getElementById('newProductName').value.trim();
+  if (!pid || !name) return toast('Product ID and name are required', 'error');
+  const data = await api('/add_product', 'POST', { product_id: pid, product_name: name });
+  if (data.error) return toast(data.error, 'error');
+  toast(`Product "${name}" added`, 'success');
+  document.getElementById('newProductId').value   = '';
+  document.getElementById('newProductName').value = '';
+  loadProducts(); refreshAll();
+}
+
+async function removeProduct(pid) {
+  if (!confirm(`Remove product "${pid}"? All key assignments will be cleared.`)) return;
+  const data = await api('/remove_product', 'POST', { product_id: pid });
+  if (data.error) return toast(data.error, 'error');
+  toast('Product removed', 'success');
+  loadProducts(); loadKeys(); refreshAll();
+}
+
+async function assignProduct() {
+  const key = document.getElementById('assignKey').value.trim();
+  const pid = document.getElementById('assignProductId').value;
+  if (!key)  return toast('Enter a license key', 'error');
+  if (!pid)  return toast('Select a product', 'error');
+  const data = await api('/assign_product', 'POST', { key, product_id: pid });
+  if (data.error) return toast(data.error, 'error');
+  toast(data.message, 'success');
+  document.getElementById('assignKey').value = '';
+  loadProducts(); loadKeys();
+}
+
+async function unassignProduct() {
+  const key = document.getElementById('assignKey').value.trim();
+  if (!key) return toast('Enter a license key to unassign', 'error');
+  const data = await api('/unassign_product', 'POST', { key });
+  if (data.error) return toast(data.error, 'error');
+  toast('Product unassigned from key', 'success');
+  document.getElementById('assignKey').value = '';
+  loadProducts(); loadKeys();
+}
+
 // ─── Loader ───────────────────────────────────────────────────────────────────
 
 function onFileSelected(input) {
   const file  = input.files && input.files[0];
   const label = document.getElementById('dzLabel');
   if (file) {
-    label.className = 'dz-file';
+    label.className   = 'dz-file';
     label.textContent = `${file.name}  (${(file.size / 1048576).toFixed(2)} MB)`;
   } else {
-    label.className = 'dz-label';
+    label.className   = 'dz-label';
     label.textContent = 'Drop your .exe here, or click to browse';
   }
 }
@@ -1599,7 +1777,7 @@ async function checkLoaderStatus() {
     const data = await api('/loader_status');
     if (data.exists) {
       const mb  = (data.size_bytes / 1048576).toFixed(2);
-      const mod = data.last_modified ? data.last_modified.substring(0,19).replace('T', ' ') : '—';
+      const mod = data.last_modified ? data.last_modified.substring(0,19).replace('T',' ') : '—';
       box.innerHTML = `
         <span style="color:var(--green);font-weight:700;font-family:'Syne',sans-serif;">✓ Loader ready</span>
         <span style="color:var(--muted);">│</span>
@@ -1643,10 +1821,6 @@ async function uploadLoader() {
   try {
     await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
-      // ── FIX: pass admin key as query param instead of custom header ──
-      // Custom headers (X-Admin-Key) trigger a CORS OPTIONS preflight which
-      // PythonAnywhere's nginx does not handle correctly for multipart uploads.
-      // Query-param auth avoids the preflight entirely.
       xhr.open('POST', `${API_BASE}/upload_loader?admin_key=${encodeURIComponent(ADMIN_KEY)}`);
 
       xhr.upload.addEventListener('progress', e => {
@@ -1671,13 +1845,9 @@ async function uploadLoader() {
         }
       };
 
-      xhr.onerror = () => {
-        reject(new Error('Network error — check that your API URL is correct and the server is running'));
-      };
-
+      xhr.onerror   = () => reject(new Error('Network error — check your API URL and server'));
       xhr.ontimeout = () => reject(new Error('Upload timed out'));
-      xhr.timeout   = 0; // no timeout for large files
-
+      xhr.timeout   = 0;
       xhr.send(formData);
     });
 
@@ -1699,9 +1869,9 @@ function genDownloadLink() {
   const key  = document.getElementById('dlTestKey').value.trim();
   const hwid = document.getElementById('dlTestHwid').value.trim();
   if (!key || !hwid) return toast('Key and HWID are required', 'error');
-  const url   = `${API_BASE}/download?key=${encodeURIComponent(key)}&hwid=${encodeURIComponent(hwid)}`;
-  const box   = document.getElementById('dlLinkResult');
-  const hint  = document.getElementById('dlLinkHint');
+  const url  = `${API_BASE}/download?key=${encodeURIComponent(key)}&hwid=${encodeURIComponent(hwid)}`;
+  const box  = document.getElementById('dlLinkResult');
+  const hint = document.getElementById('dlLinkHint');
   box.style.display  = 'block';
   hint.style.display = 'block';
   box.textContent    = url;
@@ -1722,7 +1892,7 @@ async function loadBlacklist() {
   const badge = document.getElementById('navBlacklistCount');
 
   if (!data.blacklist || data.blacklist.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="3"><div class="empty"><div class="icon">⊘</div>No blacklisted IPs — system is clean</div></td></tr>`;
+    tbody.innerHTML     = `<tr><td colspan="3"><div class="empty"><div class="icon">⊘</div>No blacklisted IPs — system is clean</div></td></tr>`;
     badge.style.display = 'none';
   } else {
     badge.textContent   = data.blacklist.length;
@@ -1747,7 +1917,7 @@ async function doBanIp() {
   const data = await api('/blacklist_ip', 'POST', { ip, reason });
   if (data.error) return toast(data.error, 'error');
   toast(`IP ${ip} blacklisted`, 'success');
-  document.getElementById('banIp').value    = '';
+  document.getElementById('banIp').value     = '';
   document.getElementById('banReason').value = 'Manual ban';
   loadBlacklist(); refreshAll();
 }
@@ -1906,20 +2076,24 @@ async function loadAccounts() {
   const data  = await api('/list_accounts');
   const tbody = document.getElementById('accountsTable');
   if (!data.accounts || data.accounts.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4"><div class="empty"><div class="icon">👤</div>No accounts found</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5"><div class="empty"><div class="icon">👤</div>No accounts found</div></td></tr>`;
     return;
   }
   tbody.innerHTML = data.accounts.map(a => {
     const exp = a.expiration
       ? `<span class="badge badge-yellow" title="${a.expiration}">${a.expiration.substring(0,10)}</span>`
       : `<span class="badge badge-purple">Permanent</span>`;
+    const prod = a.product_name
+      ? `<span class="badge badge-pink">${escapeHtml(a.product_name)}</span>`
+      : `<span style="color:var(--muted);font-size:11px;">—</span>`;
     return `<tr>
-      <td style="color:var(--accent2);font-size:12px;">@${a.username}</td>
+      <td style="color:var(--accent2);font-size:12px;">@${escapeHtml(a.username)}</td>
       <td><span class="key-val" onclick="navigator.clipboard.writeText('${a.key}');toast('Copied!','info')">${a.key}</span></td>
+      <td>${prod}</td>
       <td>${exp}</td>
       <td><div class="actions">
-        <button class="btn btn-sm btn-secondary" onclick="resetAccountHwid('${a.username}')">Reset HWID</button>
-        <button class="btn btn-sm btn-danger"    onclick="removeAccount('${a.username}')">Remove</button>
+        <button class="btn btn-sm btn-secondary" onclick="resetAccountHwid('${escapeHtml(a.username)}')">Reset HWID</button>
+        <button class="btn btn-sm btn-danger"    onclick="removeAccount('${escapeHtml(a.username)}')">Remove</button>
       </div></td>
     </tr>`;
   }).join('');
@@ -1994,7 +2168,7 @@ async function addGeneratedToSystem() {
   showTab('keys'); refreshAll();
 }
 
-// ─── Validate ────────────────────────────────────────────────────────────────
+// ─── Validate ─────────────────────────────────────────────────────────────────
 
 function setValidateMode(mode) {
   const isKey = mode === 'key';
@@ -2002,7 +2176,7 @@ function setValidateMode(mode) {
   document.getElementById('validateModeAccount').style.display = isKey ? 'none' : '';
   document.getElementById('modeKeyBtn').className     = isKey ? 'btn btn-sm' : 'btn btn-sm btn-secondary';
   document.getElementById('modeAccountBtn').className = isKey ? 'btn btn-sm btn-secondary' : 'btn btn-sm';
-  document.getElementById('validateResult').style.display    = 'none';
+  document.getElementById('validateResult').style.display = 'none';
 }
 
 function showValidateResult(data) {
@@ -2032,16 +2206,15 @@ async function doValidateKey() {
 async function doValidateAccount() {
   const username = document.getElementById('validateUsername').value.trim();
   const password = document.getElementById('validatePassword').value.trim();
-  const key      = document.getElementById('validateAccountKey').value.trim();
   const hwid     = document.getElementById('validateAccountHwid').value.trim();
-  if (!username || !password || !key) return toast('Username, password, and key required', 'error');
-  const body = new URLSearchParams({ username, password, key });
+  if (!username || !password) return toast('Username and password required', 'error');
+  const body = new URLSearchParams({ username, password });
   if (hwid) body.append('hwid', hwid);
   const res = await fetch(`${API_BASE}/login`, { method: 'POST', body });
   showValidateResult(await res.json());
 }
 
-// ─── Util ────────────────────────────────────────────────────────────────────
+// ─── Util ─────────────────────────────────────────────────────────────────────
 
 function escapeHtml(s) {
   return String(s)
