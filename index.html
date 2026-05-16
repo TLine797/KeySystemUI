@@ -183,14 +183,13 @@
   .btn:hover { opacity: 0.9; box-shadow: 0 0 20px rgba(124,58,237,0.3); }
   .btn:active { transform: scale(0.98); }
   .btn-sm { padding: 8px 14px; font-size: 11px; border-radius: 6px; }
-  .btn-danger   { background: linear-gradient(135deg, #dc2626, #ef4444); }
-  .btn-success  { background: linear-gradient(135deg, #059669, #10b981); }
-  .btn-warning  { background: linear-gradient(135deg, #d97706, #f59e0b); }
+  .btn-danger    { background: linear-gradient(135deg, #dc2626, #ef4444); }
+  .btn-success   { background: linear-gradient(135deg, #059669, #10b981); }
+  .btn-warning   { background: linear-gradient(135deg, #d97706, #f59e0b); }
   .btn-secondary { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
   .btn-secondary:hover { color: var(--text); border-color: var(--accent); }
   .btn-orange { background: linear-gradient(135deg, #ea580c, #f97316); }
   .btn-cyan   { background: linear-gradient(135deg, #0891b2, #06b6d4); }
-  .btn-pink   { background: linear-gradient(135deg, #be185d, #ec4899); }
 
   .login-error {
     color: var(--red);
@@ -335,7 +334,6 @@
   .stat-value.yellow { color: var(--yellow); }
   .stat-value.cyan   { color: var(--accent3); }
   .stat-value.orange { color: var(--orange); }
-  .stat-value.pink   { color: #ec4899; }
 
   .panel {
     background: var(--surface);
@@ -435,7 +433,6 @@
   .badge-purple { background: rgba(168,85,247,0.15);  color: var(--accent2); border: 1px solid rgba(168,85,247,0.2); }
   .badge-cyan   { background: rgba(6,182,212,0.15);   color: var(--accent3); border: 1px solid rgba(6,182,212,0.2); }
   .badge-orange { background: rgba(249,115,22,0.15);  color: var(--orange);  border: 1px solid rgba(249,115,22,0.2); }
-  .badge-pink   { background: rgba(236,72,153,0.15);  color: #ec4899;        border: 1px solid rgba(236,72,153,0.2); }
 
   .actions { display: flex; gap: 6px; flex-wrap: wrap; }
 
@@ -522,58 +519,7 @@
 
   .separator { height: 1px; background: var(--border); margin: 16px 0; }
 
-  .create-account-box {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 24px;
-  }
-  .create-account-box-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent2);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .create-account-box-title::before { content: '+'; font-size: 14px; }
-
-  /* assign key modal */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.7);
-    z-index: 300;
-    display: flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(4px);
-  }
-  .modal-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 32px;
-    width: 460px;
-    box-shadow: 0 0 60px rgba(124,58,237,0.2), 0 24px 48px rgba(0,0,0,0.6);
-    animation: slideUp 0.3s cubic-bezier(0.16,1,0.3,1);
-  }
-  .modal-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-  .modal-sub {
-    font-size: 11px;
-    color: var(--muted);
-    margin-bottom: 20px;
-  }
-  .modal-actions { display: flex; gap: 8px; margin-top: 20px; justify-content: flex-end; }
-
+  /* blacklist / fail tracker boxes */
   .blacklist-add-box {
     background: rgba(239,68,68,0.04);
     border: 1px solid rgba(239,68,68,0.15);
@@ -613,160 +559,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
-  }
-
-  .loader-status-box {
-    padding: 16px 18px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .loader-upload-box {
-    background: rgba(124,58,237,0.05);
-    border: 1px solid rgba(124,58,237,0.2);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  .loader-upload-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent2);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .loader-download-box {
-    background: rgba(6,182,212,0.04);
-    border: 1px solid rgba(6,182,212,0.15);
-    border-radius: 10px;
-    padding: 20px;
-  }
-
-  .loader-download-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent3);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .drop-zone {
-    border: 2px dashed rgba(124,58,237,0.3);
-    border-radius: 10px;
-    padding: 32px 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-bottom: 14px;
-    position: relative;
-  }
-  .drop-zone:hover, .drop-zone.drag-over {
-    border-color: var(--accent2);
-    background: rgba(124,58,237,0.05);
-  }
-  .drop-zone input[type="file"] {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-  }
-  .drop-zone .dz-icon  { font-size: 28px; margin-bottom: 8px; opacity: 0.5; }
-  .drop-zone .dz-label { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
-  .drop-zone .dz-sub   { font-size: 10px; color: var(--muted); opacity: 0.6; }
-  .drop-zone .dz-file  { font-size: 12px; color: var(--accent2); font-weight: 600; }
-
-  .upload-progress-wrap { display: none; margin-top: 12px; }
-  .upload-progress-bar-bg {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    height: 6px;
-    overflow: hidden;
-    margin-bottom: 6px;
-  }
-  .upload-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    border-radius: 100px;
-    transition: width 0.2s;
-  }
-  .upload-progress-label { font-size: 11px; color: var(--accent2); }
-
-  .dl-link-box {
-    display: none;
-    background: var(--bg);
-    border: 1px solid rgba(6,182,212,0.25);
-    border-radius: 8px;
-    padding: 12px 14px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent3);
-    word-break: break-all;
-    cursor: pointer;
-    transition: background 0.15s;
-    margin-top: 12px;
-  }
-  .dl-link-box:hover { background: rgba(6,182,212,0.05); }
-
-  .products-add-box {
-    background: rgba(236,72,153,0.04);
-    border: 1px solid rgba(236,72,153,0.2);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .products-add-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: #ec4899;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .products-assign-box {
-    background: rgba(124,58,237,0.04);
-    border: 1px solid rgba(124,58,237,0.2);
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  .products-assign-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent2);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
     gap: 8px;
   }
 
@@ -845,22 +637,9 @@
         <div class="nav-label">Keys</div>
         <div class="nav-item" onclick="showTab('keys')"      id="nav-keys">      <span class="icon">⌗</span> Regular Keys</div>
         <div class="nav-item" onclick="showTab('special')"   id="nav-special">   <span class="icon">★</span> Special Keys</div>
-        <div class="nav-item" onclick="showTab('accounts')"  id="nav-accounts">  <span class="icon">👤</span> Accounts</div>
+        <!-- Account-mode only -->
+        <div class="nav-item account-only" onclick="showTab('accounts')"  id="nav-accounts">  <span class="icon">👤</span> Accounts</div>
         <div class="nav-item" onclick="showTab('generator')" id="nav-generator"> <span class="icon">⚡</span> Key Generator</div>
-      </div>
-      <div class="nav-section">
-        <div class="nav-label">Products</div>
-        <div class="nav-item" onclick="showTab('products')" id="nav-products">
-          <span class="icon">📦</span> Products
-          <span class="nav-badge" id="navProductsCount" style="display:none;background:rgba(236,72,153,0.15);color:#ec4899;border-color:rgba(236,72,153,0.25);">0</span>
-        </div>
-      </div>
-      <div class="nav-section">
-        <div class="nav-label">Distribution</div>
-        <div class="nav-item" onclick="showTab('loader')" id="nav-loader">
-          <span class="icon">⬇</span> Loader
-          <span class="nav-badge" id="navLoaderBadge" style="display:none;background:rgba(16,185,129,0.15);color:var(--green);border-color:rgba(16,185,129,0.25);">✓</span>
-        </div>
       </div>
       <div class="nav-section">
         <div class="nav-label">Security</div>
@@ -891,10 +670,8 @@
         <div class="stat-card"><div class="stat-label">Unbound</div><div class="stat-value cyan" id="st-unbound">—</div></div>
         <div class="stat-card"><div class="stat-label">Special</div><div class="stat-value" style="color:var(--accent2)" id="st-special">—</div></div>
         <div class="stat-card"><div class="stat-label">Expired</div><div class="stat-value red" id="st-expired">—</div></div>
-        <div class="stat-card" id="st-accounts-card"><div class="stat-label">Accounts</div><div class="stat-value yellow" id="st-accounts">—</div></div>
-        <div class="stat-card"><div class="stat-label">Products</div><div class="stat-value pink" id="st-products">—</div></div>
+        <div class="stat-card account-only"><div class="stat-label">Accounts</div><div class="stat-value yellow" id="st-accounts">—</div></div>
         <div class="stat-card"><div class="stat-label">Blacklisted IPs</div><div class="stat-value orange" id="st-blacklisted">—</div></div>
-        <div class="stat-card"><div class="stat-label">Loader</div><div class="stat-value" id="st-loader" style="font-size:14px;">—</div></div>
       </div>
 
       <!-- DASHBOARD -->
@@ -904,7 +681,7 @@
         </div>
         <div class="panel-body">
           <p style="color:var(--muted);font-size:12px;line-height:1.8;">
-            Welcome to the TLine Key System admin panel. Use the sidebar to manage keys, accounts, products, view logs, validate licenses, upload the loader, and manage the IP blacklist.
+            Welcome to the TLine Key System admin panel. Use the sidebar to manage keys, view logs, validate licenses, and manage the IP blacklist.
           </p>
           <div class="separator"></div>
           <p style="color:var(--muted);font-size:11px;">Connected as admin · All actions are logged.</p>
@@ -949,8 +726,7 @@
               <thead>
                 <tr>
                   <th>Key</th>
-                  <th id="th-account">Account</th>
-                  <th>Product</th>
+                  <th class="account-only" id="th-account">Account</th>
                   <th>HWID</th>
                   <th>Status</th>
                   <th>Expiration</th>
@@ -958,7 +734,7 @@
                 </tr>
               </thead>
               <tbody id="keysTable">
-                <tr><td colspan="7"><div class="empty"><div class="icon">⌗</div>No keys loaded</div></td></tr>
+                <tr><td colspan="6"><div class="empty"><div class="icon">⌗</div>No keys loaded</div></td></tr>
               </tbody>
             </table>
           </div>
@@ -993,128 +769,15 @@
         </div>
       </div>
 
-      <!-- PRODUCTS -->
-      <div class="panel" id="panel-products">
-        <div class="panel-header">
-          <div class="panel-title">📦 <span>Products</span></div>
-          <button class="btn btn-sm" onclick="loadProducts()">↻ Refresh</button>
-        </div>
-        <div class="panel-body">
-          <div class="products-add-box">
-            <div class="products-add-title">➕ Add Product</div>
-            <div class="form-row">
-              <div class="form-field" style="max-width:180px;">
-                <label>Product ID</label>
-                <input type="text" id="newProductId" placeholder="e.g. AIMBOT" />
-              </div>
-              <div class="form-field">
-                <label>Product Name</label>
-                <input type="text" id="newProductName" placeholder="e.g. AimBot Pro v2" />
-              </div>
-              <button class="btn btn-sm btn-pink" onclick="addProduct()" style="align-self:flex-end;">+ Add Product</button>
-            </div>
-          </div>
-
-          <div class="table-wrap" style="margin-bottom:8px;">
-            <table>
-              <thead>
-                <tr><th>Product ID</th><th>Product Name</th><th>Keys Assigned</th><th>Actions</th></tr>
-              </thead>
-              <tbody id="productsTable">
-                <tr><td colspan="4"><div class="empty"><div class="icon">📦</div>No products found</div></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="products-assign-box">
-            <div class="products-assign-title">🔗 Assign Product to Key</div>
-            <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
-              Assign a product to a key so that when a user validates or logs in, the server tells them which product they have access to.
-            </p>
-            <div class="form-row">
-              <div class="form-field">
-                <label>License Key</label>
-                <input type="text" id="assignKey" placeholder="KEY-XXXX-XXXX" />
-              </div>
-              <div class="form-field" style="max-width:240px;">
-                <label>Product</label>
-                <div class="select-wrapper">
-                  <select id="assignProductId">
-                    <option value="">— Select a product —</option>
-                  </select>
-                </div>
-              </div>
-              <button class="btn btn-sm" onclick="assignProduct()" style="align-self:flex-end;">Assign →</button>
-              <button class="btn btn-sm btn-secondary" onclick="unassignProduct()" style="align-self:flex-end;">Unassign</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- LOADER -->
-      <div class="panel" id="panel-loader">
-        <div class="panel-header">
-          <div class="panel-title">⬇ <span>Loader Management</span></div>
-          <button class="btn btn-sm" onclick="checkLoaderStatus()">↻ Refresh</button>
-        </div>
-        <div class="panel-body">
-          <div class="loader-status-box" id="loaderStatusBox">
-            <span style="color:var(--muted);">Checking status...</span>
-          </div>
-          <div class="loader-upload-box">
-            <div class="loader-upload-title">⬆ Upload Loader EXE</div>
-            <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
-              Uploading a new file will <strong style="color:var(--yellow);">permanently replace</strong> any existing loader. Only one EXE is stored at a time.
-            </p>
-            <div class="drop-zone" id="dropZone">
-              <input type="file" id="loaderFileInput" accept=".exe" onchange="onFileSelected(this)" />
-              <div class="dz-icon">📦</div>
-              <div class="dz-label" id="dzLabel">Drop your .exe here, or click to browse</div>
-              <div class="dz-sub">Only .exe files</div>
-            </div>
-            <div class="upload-progress-wrap" id="uploadProgressWrap">
-              <div class="upload-progress-bar-bg">
-                <div class="upload-progress-bar" id="uploadProgressBar"></div>
-              </div>
-              <div class="upload-progress-label" id="uploadProgressLabel">Uploading...</div>
-            </div>
-            <div style="display:flex;gap:8px;margin-top:12px;">
-              <button class="btn btn-sm btn-success" onclick="uploadLoader()">⬆ Upload to Server</button>
-              <button class="btn btn-sm btn-secondary" onclick="clearFileSelection()">✕ Clear</button>
-            </div>
-          </div>
-          <div class="loader-download-box">
-            <div class="loader-download-title">⬇ Generate Download Link</div>
-            <p style="font-size:11px;color:var(--muted);margin-bottom:14px;">
-              The <code style="color:var(--accent3);background:var(--surface2);padding:2px 6px;border-radius:4px;">/download</code>
-              endpoint requires a valid license key + HWID. Generate a test link here.
-            </p>
-            <div class="form-row" style="margin-bottom:0;">
-              <div class="form-field">
-                <label>License Key</label>
-                <input type="text" id="dlTestKey" placeholder="KEY-XXXX-XXXX" />
-              </div>
-              <div class="form-field">
-                <label>HWID</label>
-                <input type="text" id="dlTestHwid" placeholder="Hardware ID" />
-              </div>
-              <button class="btn btn-sm btn-cyan" onclick="genDownloadLink()" style="align-self:flex-end;">Generate Link</button>
-            </div>
-            <div class="dl-link-box" id="dlLinkResult" onclick="copyDlLink()" title="Click to copy"></div>
-            <p id="dlLinkHint" style="display:none;font-size:10px;color:var(--muted);margin-top:6px;">Click the link above to copy it.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACCOUNTS -->
-      <div class="panel" id="panel-accounts">
+      <!-- ACCOUNTS (account-mode only) -->
+      <div class="panel account-only" id="panel-accounts">
         <div class="panel-header">
           <div class="panel-title">👤 <span>Accounts</span></div>
           <button class="btn btn-sm" onclick="loadAccounts()">↻ Refresh</button>
         </div>
         <div class="panel-body">
-          <div class="create-account-box">
-            <div class="create-account-box-title">Create Account</div>
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px;">
+            <div style="font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--accent2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">+ Create Account</div>
             <div class="form-row">
               <div class="form-field">
                 <label>Username</label>
@@ -1134,10 +797,10 @@
           <div class="table-wrap">
             <table>
               <thead>
-                <tr><th>Username</th><th>Bound Key</th><th>Products</th><th>Expiration</th><th>Actions</th></tr>
+                <tr><th>Username</th><th>Bound Key</th><th>Expiration</th><th>Actions</th></tr>
               </thead>
               <tbody id="accountsTable">
-                <tr><td colspan="5"><div class="empty"><div class="icon">👤</div>No accounts loaded</div></td></tr>
+                <tr><td colspan="4"><div class="empty"><div class="icon">👤</div>No accounts loaded</div></td></tr>
               </tbody>
             </table>
           </div>
@@ -1229,6 +892,8 @@
               </tbody>
             </table>
           </div>
+
+          <!-- Fail Tracker -->
           <div class="fail-tracker-box">
             <div class="fail-tracker-title">
               <span>⚡ Auto-Blacklist Tracker</span>
@@ -1292,7 +957,7 @@
           <div class="panel-title">✦ <span>Validate / Test Auth</span></div>
         </div>
         <div class="panel-body">
-          <div id="validateModeToggle" style="display:flex;gap:8px;margin-bottom:20px;">
+          <div id="validateModeToggle" style="display:flex;gap:8px;margin-bottom:20px;display:none;">
             <button class="btn btn-sm" id="modeKeyBtn" onclick="setValidateMode('key')">Key Only</button>
             <button class="btn btn-sm btn-secondary" id="modeAccountBtn" onclick="setValidateMode('account')">Username + Password</button>
           </div>
@@ -1334,30 +999,12 @@
   </div>
 </div>
 
-<!-- Assign Key Modal -->
-<div id="assignKeyModal" style="display:none;" class="modal-overlay" onclick="if(event.target===this)closeAssignKeyModal()">
-  <div class="modal-card">
-    <div class="modal-title">Assign Key to Account</div>
-    <div class="modal-sub" id="assignKeyModalSub">Assigning key to @username</div>
-    <div class="form-field" style="margin-bottom:0;">
-      <label>License Key</label>
-      <input type="text" id="assignKeyModalInput" placeholder="KEY-XXXX-XXXX or leave blank to clear" />
-    </div>
-    <p style="font-size:10px;color:var(--muted);margin-top:8px;">Leave blank to unlink any key from this account.</p>
-    <div class="modal-actions">
-      <button class="btn btn-sm btn-secondary" onclick="closeAssignKeyModal()">Cancel</button>
-      <button class="btn btn-sm btn-success" onclick="confirmAssignKey()">Save Key</button>
-    </div>
-  </div>
-</div>
-
 <div id="toast"></div>
 
 <script>
 let API_BASE  = '';
 let ADMIN_KEY = '';
 let AUTH_MODE = 'key';
-let _assignKeyTarget = '';
 
 const LS_URL  = 'tline_api_url';
 const LS_KEY  = 'tline_admin_key';
@@ -1380,20 +1027,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   document.getElementById('loginKey').addEventListener('keydown', e => { if (e.key === 'Enter') attemptLogin(); });
-
-  const dz = document.getElementById('dropZone');
-  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('drag-over'); });
-  dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
-  dz.addEventListener('drop', e => {
-    e.preventDefault();
-    dz.classList.remove('drag-over');
-    const file = e.dataTransfer.files[0];
-    if (file) {
-      document.getElementById('loaderFileInput').files = e.dataTransfer.files;
-      onFileSelected({ files: e.dataTransfer.files });
-    }
-  });
-
   updateGenPreview();
 });
 
@@ -1402,6 +1035,19 @@ function selectAuthMode(mode, silent = false) {
   document.getElementById('modeToggleKey').classList.toggle('active',     mode === 'key');
   document.getElementById('modeToggleAccount').classList.toggle('active', mode === 'account');
   if (!silent) localStorage.setItem(LS_MODE, mode);
+}
+
+function applyAccountModeVisibility() {
+  const isAccount = AUTH_MODE === 'account';
+  document.querySelectorAll('.account-only').forEach(el => {
+    el.style.display = isAccount ? '' : 'none';
+  });
+  // toggle header in key table
+  const thAccount = document.getElementById('th-account');
+  if (thAccount) thAccount.style.display = isAccount ? '' : 'none';
+  // validate toggle
+  document.getElementById('validateModeToggle').style.display = isAccount ? 'flex' : 'none';
+  setValidateMode(AUTH_MODE);
 }
 
 async function autoLogin(url, key) {
@@ -1454,20 +1100,11 @@ function enterApp(statsData) {
   document.getElementById('app').style.display         = 'block';
   document.getElementById('apiUrlDisplay').textContent  = API_BASE.replace('https://', '');
   document.getElementById('apiUrlFull').textContent     = API_BASE;
+  applyAccountModeVisibility();
   applyStats(statsData);
   loadKeys();
   loadBlacklist();
   loadFailTracker();
-  checkLoaderStatus();
-  loadProducts();
-
-  const isAccount = AUTH_MODE === 'account';
-  document.getElementById('nav-accounts').style.display     = isAccount ? '' : 'none';
-  document.getElementById('st-accounts-card').style.display = isAccount ? '' : 'none';
-  document.getElementById('th-account').style.display       = isAccount ? '' : 'none';
-
-  setValidateMode(AUTH_MODE);
-  document.getElementById('validateModeToggle').style.display = isAccount ? '' : 'none';
 }
 
 function logout() {
@@ -1514,9 +1151,7 @@ function showTab(tab) {
   if (tab === 'special')   loadSpecialKeys();
   if (tab === 'logs')      loadLogs();
   if (tab === 'accounts')  loadAccounts();
-  if (tab === 'products')  loadProducts();
   if (tab === 'blacklist') { loadBlacklist(); loadFailTracker(); }
-  if (tab === 'loader')    checkLoaderStatus();
 }
 
 function applyStats(data) {
@@ -1526,20 +1161,7 @@ function applyStats(data) {
   document.getElementById('st-special').textContent     = data.special_keys    ?? '—';
   document.getElementById('st-expired').textContent     = data.expired_keys    ?? '—';
   document.getElementById('st-accounts').textContent    = data.total_accounts  ?? '—';
-  document.getElementById('st-products').textContent    = data.total_products  ?? '—';
   document.getElementById('st-blacklisted').textContent = data.blacklisted_ips ?? '—';
-
-  const loaderEl = document.getElementById('st-loader');
-  if (data.loader_present === true) {
-    loaderEl.textContent = '✓ Ready';
-    loaderEl.style.color = 'var(--green)';
-  } else if (data.loader_present === false) {
-    loaderEl.textContent = '✕ Missing';
-    loaderEl.style.color = 'var(--red)';
-  } else {
-    loaderEl.textContent = '—';
-    loaderEl.style.color = '';
-  }
 }
 
 async function refreshAll() {
@@ -1553,30 +1175,28 @@ async function refreshAll() {
 async function loadKeys() {
   const data  = await api('/list_keys');
   const tbody = document.getElementById('keysTable');
+  const isAccount = AUTH_MODE === 'account';
   if (!data.keys || data.keys.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7"><div class="empty"><div class="icon">⌗</div>No keys found</div></td></tr>`;
+    const colspan = isAccount ? 6 : 5;
+    tbody.innerHTML = `<tr><td colspan="${colspan}"><div class="empty"><div class="icon">⌗</div>No keys found</div></td></tr>`;
     return;
   }
   tbody.innerHTML = data.keys.map(k => {
-    const status   = k.bound
+    const status = k.bound
       ? `<span class="badge badge-green">Bound</span>`
       : `<span class="badge badge-cyan">Unbound</span>`;
-    const exp      = k.expiration
+    const exp = k.expiration
       ? `<span class="badge badge-yellow" title="${k.expiration}">${k.expiration.substring(0,10)}</span>`
       : `<span class="badge badge-purple">Permanent</span>`;
-    const hwid     = k.hwid
+    const hwid = k.hwid
       ? `<span style="color:var(--muted);font-size:11px;max-width:130px;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${k.hwid}">${k.hwid}</span>`
       : `<span style="color:var(--muted);font-size:11px;">—</span>`;
-    const acctCell = AUTH_MODE === 'account'
+    const acctCell = isAccount
       ? `<td>${k.username ? `<span style="color:var(--accent2);font-size:11px;">@${k.username}</span>` : `<span style="color:var(--muted);font-size:11px;">—</span>`}</td>`
       : '';
-    const productCell = (k.products && k.products.length > 0)
-      ? k.products.map(p => `<span class="badge badge-pink">${escapeHtml(p.product_name || p.product_id)}</span>`).join(' ')
-      : `<span style="color:var(--muted);font-size:11px;">—</span>`;
     return `<tr>
       <td><span class="key-val" onclick="navigator.clipboard.writeText('${k.key}');toast('Copied!','info')">${k.key}</span></td>
       ${acctCell}
-      <td>${productCell}</td>
       <td>${hwid}</td>
       <td>${status}</td>
       <td>${exp}</td>
@@ -1671,138 +1291,31 @@ async function removeSpecialKey(key) {
   loadSpecialKeys(); refreshAll();
 }
 
-// ── Products ──────────────────────────────────────────────────────────────────
-
-async function loadProducts() {
-  const data  = await api('/list_products');
-  const tbody = document.getElementById('productsTable');
-  const sel   = document.getElementById('assignProductId');
-  const badge = document.getElementById('navProductsCount');
-
-  if (!data.products || data.products.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4"><div class="empty"><div class="icon">📦</div>No products found</div></td></tr>`;
-    sel.innerHTML   = '<option value="">— No products —</option>';
-    badge.style.display = 'none';
-    return;
-  }
-
-  badge.textContent   = data.products.length;
-  badge.style.display = '';
-
-  tbody.innerHTML = data.products.map(p => `<tr>
-    <td><span class="badge badge-pink">${escapeHtml(p.product_id)}</span></td>
-    <td style="color:var(--text);font-size:12px;font-weight:600;">${escapeHtml(p.product_name)}</td>
-    <td style="color:var(--muted);font-size:12px;">${p.key_count} key${p.key_count !== 1 ? 's' : ''}</td>
-    <td><div class="actions">
-      <button class="btn btn-sm btn-danger" onclick="removeProduct('${escapeHtml(p.product_id)}')">Remove</button>
-    </div></td>
-  </tr>`).join('');
-
-  sel.innerHTML = '<option value="">— Select a product —</option>' + data.products.map(p =>
-    `<option value="${escapeHtml(p.product_id)}">${escapeHtml(p.product_name)}</option>`
-  ).join('');
-}
-
-async function addProduct() {
-  const pid  = document.getElementById('newProductId').value.trim().toUpperCase();
-  const name = document.getElementById('newProductName').value.trim();
-  if (!pid || !name) return toast('Product ID and name are required', 'error');
-  const data = await api('/add_product', 'POST', { product_id: pid, product_name: name });
-  if (data.error) return toast(data.error, 'error');
-  toast(`Product "${name}" added`, 'success');
-  document.getElementById('newProductId').value   = '';
-  document.getElementById('newProductName').value = '';
-  loadProducts(); refreshAll();
-}
-
-async function removeProduct(pid) {
-  if (!confirm(`Remove product "${pid}"? All key assignments will be cleared.`)) return;
-  const data = await api('/remove_product', 'POST', { product_id: pid });
-  if (data.error) return toast(data.error, 'error');
-  toast('Product removed', 'success');
-  loadProducts(); loadKeys(); refreshAll();
-}
-
-async function assignProduct() {
-  const key = document.getElementById('assignKey').value.trim();
-  const pid = document.getElementById('assignProductId').value;
-  if (!key)  return toast('Enter a license key', 'error');
-  if (!pid)  return toast('Select a product', 'error');
-  const data = await api('/assign_product', 'POST', { key, product_id: pid });
-  if (data.error) return toast(data.error, 'error');
-  toast(data.message, 'success');
-  document.getElementById('assignKey').value = '';
-  loadProducts(); loadKeys();
-}
-
-async function unassignProduct() {
-  const key = document.getElementById('assignKey').value.trim();
-  if (!key) return toast('Enter a license key to unassign', 'error');
-  const data = await api('/unassign_product', 'POST', { key });
-  if (data.error) return toast(data.error, 'error');
-  toast('Product unassigned from key', 'success');
-  document.getElementById('assignKey').value = '';
-  loadProducts(); loadKeys();
-}
-
-// ── Accounts (with Assign Key modal) ─────────────────────────────────────────
+// ── Accounts (account-mode only) ──────────────────────────────────────────────
 
 async function loadAccounts() {
   const data  = await api('/list_accounts');
   const tbody = document.getElementById('accountsTable');
   if (!data.accounts || data.accounts.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5"><div class="empty"><div class="icon">👤</div>No accounts found</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4"><div class="empty"><div class="icon">👤</div>No accounts found</div></td></tr>`;
     return;
   }
   tbody.innerHTML = data.accounts.map(a => {
     const exp = a.expiration
       ? `<span class="badge badge-yellow" title="${a.expiration}">${a.expiration.substring(0,10)}</span>`
       : `<span class="badge badge-purple">Permanent</span>`;
-
-    const prodLabels = (a.products && a.products.length > 0)
-      ? a.products.map(p => `<span class="badge badge-pink">${escapeHtml(p.product_name || p.product_id)}</span>`).join(' ')
-      : `<span style="color:var(--muted);font-size:11px;">—</span>`;
-
     const keyCell = a.key
       ? `<span class="key-val" onclick="navigator.clipboard.writeText('${escapeHtml(a.key)}');toast('Copied!','info')">${escapeHtml(a.key)}</span>`
       : `<span style="color:var(--red);font-size:11px;font-style:italic;">No key linked</span>`;
-
     return `<tr>
       <td style="color:var(--accent2);font-size:12px;">@${escapeHtml(a.username)}</td>
       <td>${keyCell}</td>
-      <td>${prodLabels}</td>
       <td>${exp}</td>
       <td><div class="actions">
-        <button class="btn btn-sm btn-warning" onclick="openAssignKeyModal('${escapeHtml(a.username)}', '${escapeHtml(a.key || '')}')">
-          ${a.key ? 'Change Key' : 'Assign Key'}
-        </button>
-        <button class="btn btn-sm btn-secondary" onclick="resetAccountHwid('${escapeHtml(a.username)}')">Reset HWID</button>
-        <button class="btn btn-sm btn-danger"    onclick="removeAccount('${escapeHtml(a.username)}')">Remove</button>
+        <button class="btn btn-sm btn-danger" onclick="removeAccount('${escapeHtml(a.username)}')">Remove</button>
       </div></td>
     </tr>`;
   }).join('');
-}
-
-function openAssignKeyModal(username, currentKey) {
-  _assignKeyTarget = username;
-  document.getElementById('assignKeyModalSub').textContent = `Assigning key to @${username}`;
-  document.getElementById('assignKeyModalInput').value     = currentKey || '';
-  document.getElementById('assignKeyModal').style.display  = 'flex';
-  setTimeout(() => document.getElementById('assignKeyModalInput').focus(), 50);
-}
-
-function closeAssignKeyModal() {
-  document.getElementById('assignKeyModal').style.display = 'none';
-  _assignKeyTarget = '';
-}
-
-async function confirmAssignKey() {
-  const key = document.getElementById('assignKeyModalInput').value.trim();
-  const data = await api('/update_account_key', 'POST', { username: _assignKeyTarget, key });
-  if (data.error) return toast(data.error, 'error');
-  toast(data.message || 'Key updated', 'success');
-  closeAssignKeyModal();
-  loadAccounts(); loadKeys(); refreshAll();
 }
 
 async function createAccount() {
@@ -1829,141 +1342,54 @@ async function removeAccount(username) {
   loadAccounts(); refreshAll();
 }
 
-async function resetAccountHwid(username) {
-  const data = await api('/reset_account_hwid', 'POST', { username });
-  if (data.error) return toast(data.error, 'error');
-  toast('HWID reset for account', 'success');
-  loadAccounts();
+// ── Generator ─────────────────────────────────────────────────────────────────
+
+function makeKey() {
+  const groups = parseInt(document.getElementById('genGroups').value) || 3;
+  const chars  = parseInt(document.getElementById('genChars').value)  || 5;
+  const prefix = (document.getElementById('genPrefix').value.trim() || 'TLINE').toUpperCase();
+  const seg    = () => Array.from({length: chars}, () => SAFE_CHARS[Math.floor(Math.random() * SAFE_CHARS.length)]).join('');
+  return `${prefix}-${Array.from({length: groups}, seg).join('-')}`;
 }
 
-// ── Loader ────────────────────────────────────────────────────────────────────
+function updateGenPreview() {
+  const el = document.getElementById('genPreview');
+  if (el) el.textContent = makeKey();
+}
 
-function onFileSelected(input) {
-  const file  = input.files && input.files[0];
-  const label = document.getElementById('dzLabel');
-  if (file) {
-    label.className   = 'dz-file';
-    label.textContent = `${file.name}  (${(file.size / 1048576).toFixed(2)} MB)`;
-  } else {
-    label.className   = 'dz-label';
-    label.textContent = 'Drop your .exe here, or click to browse';
+function toggleExpiryDuration() {
+  const unit = document.getElementById('genExpiryUnit').value;
+  document.getElementById('genExpiryDurationWrapper').style.display = unit === 'lifetime' ? 'none' : '';
+}
+
+function runGenerator() {
+  const n = Math.min(parseInt(document.getElementById('genQty').value) || 1, 1000);
+  document.getElementById('generatedKeys').value = Array.from({length: n}, makeKey).join('\n');
+  toast(`Generated ${n} key(s)`, 'success');
+}
+
+async function copyGeneratedKeys() {
+  const val = document.getElementById('generatedKeys').value;
+  if (!val) return;
+  await navigator.clipboard.writeText(val);
+  toast('Copied to clipboard!', 'success');
+}
+
+async function addGeneratedToSystem() {
+  const val = document.getElementById('generatedKeys').value.trim();
+  if (!val) return toast('No keys to add', 'error');
+  const exp  = buildExpiryISOFrom('genExpiryUnit', 'genExpiryDuration');
+  const keys = val.split('\n').map(k => k.trim()).filter(Boolean);
+  let ok = 0, fail = 0;
+  for (const key of keys) {
+    const body = { key };
+    if (exp) body.expiration = exp;
+    const d = await api('/add_key', 'POST', body);
+    d.error ? fail++ : ok++;
   }
-}
-
-function clearFileSelection() {
-  document.getElementById('loaderFileInput').value = '';
-  onFileSelected({ files: [] });
-}
-
-async function checkLoaderStatus() {
-  const box   = document.getElementById('loaderStatusBox');
-  const badge = document.getElementById('navLoaderBadge');
-  try {
-    const data = await api('/loader_status');
-    if (data.exists) {
-      const mb  = (data.size_bytes / 1048576).toFixed(2);
-      const mod = data.last_modified ? data.last_modified.substring(0,19).replace('T',' ') : '—';
-      box.innerHTML = `
-        <span style="color:var(--green);font-weight:700;font-family:'Syne',sans-serif;">✓ Loader ready</span>
-        <span style="color:var(--muted);">│</span>
-        <span style="color:var(--text);">${data.filename || 'loader.exe'}</span>
-        <span style="color:var(--muted);">${mb} MB</span>
-        <span style="color:var(--muted);">│ Modified: ${mod}</span>`;
-      badge.style.display = '';
-      document.getElementById('st-loader').textContent = '✓ Ready';
-      document.getElementById('st-loader').style.color = 'var(--green)';
-    } else {
-      box.innerHTML = `
-        <span style="color:var(--red);font-weight:700;font-family:'Syne',sans-serif;">✕ No loader on server</span>
-        <span style="color:var(--muted);">Upload one below to enable downloads.</span>`;
-      badge.style.display = 'none';
-      document.getElementById('st-loader').textContent = '✕ Missing';
-      document.getElementById('st-loader').style.color = 'var(--red)';
-    }
-  } catch {
-    box.innerHTML = `<span style="color:var(--red);">Failed to fetch loader status.</span>`;
-  }
-}
-
-async function uploadLoader() {
-  const fileInput = document.getElementById('loaderFileInput');
-  if (!fileInput.files || !fileInput.files.length) return toast('Select an .exe file first', 'error');
-
-  const file = fileInput.files[0];
-  if (!file.name.toLowerCase().endsWith('.exe')) return toast('Only .exe files are allowed', 'error');
-
-  const progressWrap = document.getElementById('uploadProgressWrap');
-  const progressBar  = document.getElementById('uploadProgressBar');
-  const progressLbl  = document.getElementById('uploadProgressLabel');
-
-  progressWrap.style.display = 'block';
-  progressBar.style.width    = '0%';
-  progressLbl.textContent    = `Uploading ${file.name} (${(file.size / 1048576).toFixed(2)} MB)...`;
-
-  const formData = new FormData();
-  formData.append('file', file);
-
-  try {
-    await new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', `${API_BASE}/upload_loader?admin_key=${encodeURIComponent(ADMIN_KEY)}`);
-
-      xhr.upload.addEventListener('progress', e => {
-        if (e.lengthComputable) {
-          const pct = Math.round((e.loaded / e.total) * 100);
-          progressBar.style.width = `${pct}%`;
-          progressLbl.textContent = `Uploading... ${pct}%`;
-        }
-      });
-
-      xhr.onload = () => {
-        if (xhr.status === 0) { reject(new Error('Network error')); return; }
-        try {
-          const data = JSON.parse(xhr.responseText);
-          if (data.error) reject(new Error(data.error));
-          else resolve(data);
-        } catch {
-          reject(new Error(`Unexpected response (HTTP ${xhr.status})`));
-        }
-      };
-
-      xhr.onerror   = () => reject(new Error('Network error — check your API URL and server'));
-      xhr.ontimeout = () => reject(new Error('Upload timed out'));
-      xhr.timeout   = 0;
-      xhr.send(formData);
-    });
-
-    progressBar.style.width = '100%';
-    progressLbl.textContent = 'Upload complete!';
-    setTimeout(() => { progressWrap.style.display = 'none'; }, 1500);
-
-    toast('Loader uploaded successfully!', 'success');
-    clearFileSelection();
-    checkLoaderStatus();
-    refreshAll();
-  } catch (err) {
-    progressWrap.style.display = 'none';
-    toast(err.message || 'Upload failed', 'error');
-  }
-}
-
-function genDownloadLink() {
-  const key  = document.getElementById('dlTestKey').value.trim();
-  const hwid = document.getElementById('dlTestHwid').value.trim();
-  if (!key || !hwid) return toast('Key and HWID are required', 'error');
-  const url  = `${API_BASE}/download?key=${encodeURIComponent(key)}&hwid=${encodeURIComponent(hwid)}`;
-  const box  = document.getElementById('dlLinkResult');
-  const hint = document.getElementById('dlLinkHint');
-  box.style.display  = 'block';
-  hint.style.display = 'block';
-  box.textContent    = url;
-  box._url           = url;
-  toast('Link generated — click to copy', 'info');
-}
-
-function copyDlLink() {
-  const el = document.getElementById('dlLinkResult');
-  if (el._url) { navigator.clipboard.writeText(el._url); toast('Link copied!', 'success'); }
+  toast(`Added ${ok} key(s).${fail ? ` ${fail} failed.` : ''}`, ok ? 'success' : 'error');
+  document.getElementById('generatedKeys').value = '';
+  showTab('keys'); refreshAll();
 }
 
 // ── IP Blacklist ──────────────────────────────────────────────────────────────
@@ -2133,60 +1559,6 @@ async function clearLogs() {
   await api('/clear_logs', 'POST');
   toast('Logs cleared', 'success');
   loadLogs();
-}
-
-// ── Generator ─────────────────────────────────────────────────────────────────
-
-function makeKey() {
-  const groups = parseInt(document.getElementById('genGroups').value) || 3;
-  const chars  = parseInt(document.getElementById('genChars').value)  || 5;
-  const prefix = (document.getElementById('genPrefix').value.trim() || 'TLINE').toUpperCase();
-  const seg    = () => Array.from({length: chars}, () => SAFE_CHARS[Math.floor(Math.random() * SAFE_CHARS.length)]).join('');
-  return `${prefix}-${Array.from({length: groups}, seg).join('-')}`;
-}
-
-function updateGenPreview() {
-  const el = document.getElementById('genPreview');
-  if (el) el.textContent = makeKey();
-}
-
-function toggleExpiryDuration() {
-  const unit = document.getElementById('genExpiryUnit').value;
-  document.getElementById('genExpiryDurationWrapper').style.display = unit === 'lifetime' ? 'none' : '';
-}
-
-function buildExpiryISO() {
-  return buildExpiryISOFrom('genExpiryUnit', 'genExpiryDuration');
-}
-
-function runGenerator() {
-  const n = Math.min(parseInt(document.getElementById('genQty').value) || 1, 1000);
-  document.getElementById('generatedKeys').value = Array.from({length: n}, makeKey).join('\n');
-  toast(`Generated ${n} key(s)`, 'success');
-}
-
-async function copyGeneratedKeys() {
-  const val = document.getElementById('generatedKeys').value;
-  if (!val) return;
-  await navigator.clipboard.writeText(val);
-  toast('Copied to clipboard!', 'success');
-}
-
-async function addGeneratedToSystem() {
-  const val = document.getElementById('generatedKeys').value.trim();
-  if (!val) return toast('No keys to add', 'error');
-  const exp  = buildExpiryISO();
-  const keys = val.split('\n').map(k => k.trim()).filter(Boolean);
-  let ok = 0, fail = 0;
-  for (const key of keys) {
-    const body = { key };
-    if (exp) body.expiration = exp;
-    const d = await api('/add_key', 'POST', body);
-    d.error ? fail++ : ok++;
-  }
-  toast(`Added ${ok} key(s).${fail ? ` ${fail} failed.` : ''}`, ok ? 'success' : 'error');
-  document.getElementById('generatedKeys').value = '';
-  showTab('keys'); refreshAll();
 }
 
 // ── Validate ──────────────────────────────────────────────────────────────────
